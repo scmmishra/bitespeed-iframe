@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
   setupClick(document.querySelector("#counter"));
 
   setTimeout(() => {
-    console.log("sending message after 100ms");
+    logEverywhere("sending message after 100ms");
     document.getElementById("counter")?.click();
   }, 100);
 });
