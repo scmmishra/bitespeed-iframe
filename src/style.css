@@ -96,7 +96,7 @@ button:focus-visible {
 }
 
 pre {
-  max-width: 400px;
+  max-width: 600px;
   overflow: scroll;
   text-align: left;
 }
