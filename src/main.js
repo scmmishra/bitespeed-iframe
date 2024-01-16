@@ -13,11 +13,11 @@ document.querySelector("#app").innerHTML = `
   </div>
 `;
 
-export function setupCounter(element) {
-  const setCounter = (count) => {
+export function setupClick(element) {
+  const onClick = (count) => {
     window.parent.postMessage("chatwoot-dashboard-app:fetch-info", "*");
   };
-  element.addEventListener("click", () => setCounter(counter + 1));
+  element.addEventListener("click", () => onClick(counter + 1));
 }
 
 // Log to the console and to the #log element
@@ -32,10 +32,17 @@ window.logEverywhere = (...args) => {
   log.scrollTop = log.scrollHeight;
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+  setupClick(document.querySelector("#counter"));
+
+  setTimeout(() => {
+    console.log("sending message after 100ms");
+    document.getElementById("counter")?.click();
+  }, 100);
+});
+
 const setDataFromMessage = (event) => {
   logEverywhere(event.data);
 };
-
-setupCounter(document.querySelector("#counter"));
 
 window.addEventListener("message", setDataFromMessage);
