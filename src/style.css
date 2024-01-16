@@ -94,3 +94,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+pre {
+  max-width: 400px;
+  overflow: scroll;
+  text-align: left;
+}
+
+.muted {
+  color: #888;
+}
