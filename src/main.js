@@ -7,22 +7,17 @@ document.querySelector("#app").innerHTML = `
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
     </a>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <button id="counter" type="button">Click to trigger event</button>
     </div>
     <pre id="log"></pre>
   </div>
 `;
 
 export function setupCounter(element) {
-  let counter = 0;
   const setCounter = (count) => {
-    counter = count;
-    element.innerHTML = `count is ${counter}`;
     window.parent.postMessage("chatwoot-dashboard-app:fetch-info", "*");
-    logEverywhere("SET COUNTER");
   };
   element.addEventListener("click", () => setCounter(counter + 1));
-  setCounter(0);
 }
 
 // Log to the console and to the #log element
